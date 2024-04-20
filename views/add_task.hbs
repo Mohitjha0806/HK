@@ -1,0 +1,30 @@
+<!-- views/add_task.hbs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task</title>
+</head>
+<body>
+    <h1>Add Task</h1>
+    <form action="/tasks/add" method="POST">
+        <label for="user">Select User:</label>
+        <select id="user" name="user">
+            {{#each users}}
+                <option value="{{this.id}}">{{this.name}}</option>
+            {{/each}}
+        </select><br><br>
+        <label for="task_name">Task Name:</label>
+        <input type="text" id="task_name" name="task_name" required><br><br>
+        <label for="task_type">Task Type:</label>
+        <input type="text" id="task_type" name="task_type" required><br><br>
+        <label for="pending">Pending:</label>
+        <input type="checkbox" id="pending" name="status" value="pending"><br><br>
+        <label for="done">Done:</label>
+        <input type="checkbox" id="done" name="status" value="done"><br><br>
+        <button type="submit">Add Task</button>
+    </form>
+</body>
+</html>
